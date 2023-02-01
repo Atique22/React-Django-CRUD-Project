@@ -26,8 +26,8 @@ function App() {
         students.map((students, index) => {
           return(<>
             <h3 key={index}>Student ID: {students.id}</h3>
-            <h3 key={index}>Student Name: {students.studName}</h3>
-            <h3 key={index}>Student Email: {students.studEmail}</h3>
+            <h3 >Student Name: {students.studName}</h3>
+            <h3>Student Email: {students.studEmail}</h3>
             </>
             )
         })
