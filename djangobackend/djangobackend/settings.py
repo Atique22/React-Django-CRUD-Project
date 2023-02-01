@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',# mention by me
     'api',# mention by me
+    'corsheaders',# mention by me
 ]
 
 MIDDLEWARE = [
+
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -129,3 +132,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # REST_FRAMEWORK = {
 #     'DEFAULT_RENDERER_CLASSES':('rest_framework.renderers.JSONRenderer',)
 # }
+
+CORS_ORIGIN_ALLOW_ALL = True
+# or specify allowed domains as a list 
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+]
