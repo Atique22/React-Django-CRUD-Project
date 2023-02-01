@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',# mention by me
     'api',# mention by me
     'corsheaders',# mention by me
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
