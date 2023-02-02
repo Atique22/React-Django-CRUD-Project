@@ -18,11 +18,11 @@ function PostData() {
     }
 
     const sendData = async(e) => {
-        e.preventDefault()
+        // e.preventDefault()
         console.log("data send: " + userData)
         try {
             alert("Api calling.url");
-            const response = await axios.post('http://127.0.0.1:8000/api/student/', {userData});
+            const response = await axios.post('http://127.0.0.1:8000/api/student/', userData);
             console.log(response.userData);
             console.log("data send: " + userData)
         } catch (error) {

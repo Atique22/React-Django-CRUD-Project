@@ -12,8 +12,8 @@ class StudentList(ListAPIView):
     serializer_class = StudentSerializer
 
     def post(self, request, *args, **kwargs):
-            name = request.POST.get('name')
-            email = request.POST.get('email')
+            name = request.POST.get('studName')
+            email = request.POST.get('studEmail')
             # process the data, such as saving it to the database
             user = Students.objects.create(studName=name, studEmail=email)
             return JsonResponse({'message': 'Data created successfully'})
