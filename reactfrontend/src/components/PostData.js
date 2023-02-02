@@ -22,7 +22,7 @@ function PostData() {
         console.log("data send: " + userData)
         try {
             alert("Api calling.url");
-            const response = await axios.post('http://127.0.0.1:8000/api/students/add/', {userData});
+            const response = await axios.post('http://127.0.0.1:8000/api/student/', {userData});
             console.log(response.userData);
             console.log("data send: " + userData)
         } catch (error) {
@@ -41,7 +41,6 @@ function PostData() {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control name='UserEmail' type="email" placeholder="Enter email" onChange={onValueChange}/>
                 </Form.Group>
-
 
                 <Button variant="primary" type="submit" onClick={(e)=>sendData(e)}>
                     Submit
