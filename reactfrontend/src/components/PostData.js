@@ -22,7 +22,7 @@ function PostData() {
         console.log("data send: " + userData)
         try {
             alert("Api calling.url");
-            const response = await axios.post('http://127.0.0.1:8000/admin/api/students/add/', {userData});
+            const response = await axios.post('http://127.0.0.1:8000/api/students/add/', {userData});
             console.log(response.userData);
             console.log("data send: " + userData)
         } catch (error) {
