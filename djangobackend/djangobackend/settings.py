@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',# mention by me
     'api',# mention by me
     'corsheaders',# mention by me
-    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -137,5 +136,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_ALLOW_ALL = True
 # or specify allowed domains as a list 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
+   "http://127.0.0.1:3000", 
+    "http://127.0.0.1", 
+    "http://localhost:3000", 
+    "http://localhost"
+]
+ALLOWED_HOSTS = ['*', 
+    "http://127.0.0.1:3000", 
+    "http://127.0.0.1", 
+    "http://localhost:3000", 
+    "http://localhost"
 ]

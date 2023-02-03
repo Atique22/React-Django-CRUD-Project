@@ -33,3 +33,15 @@ class StudentList(ListAPIView):
 class TeacherList(ListAPIView):
     queryset = Teachers.objects.all()
     serializer_class = TeacherSerializer
+
+    def post(self, request):
+        if request.method == 'POST':
+            tecName = request.POST.get('tecName')
+            techEmail = request.POST.get('techEmail')
+            techPhone = request.POST.get('techPhone')
+
+            teacher = Teachers(tecName=tecName, techEmail=techEmail)
+            teacher.save()
+
+            return JsonResponse({'message': 'Student created successfully'})
+        return JsonResponse({'error': 'Invalid request method'})
