@@ -7,7 +7,7 @@ function PostData() {
 
     const [studName, setStudName] = useState('');
     const [studEmail, setStudEmail] = useState('');
-    const id = null;
+    // const id = null;
     const sendData = async (event) => {
         event.preventDefault();
         console.log(studName);
@@ -18,7 +18,7 @@ function PostData() {
         }
             try {
                 const response = await axios.post('http://127.0.0.1:8000/api/student/', {
-                    id,
+                    // id,
                     studName,
                     studEmail
                 });
@@ -27,6 +27,7 @@ function PostData() {
                 console.error(error);
             }
     };
+
 
     return (
         <div className='container col-sm-6 m-5'>
