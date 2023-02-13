@@ -19,7 +19,7 @@ function GetData() {
     const url_update = `http://127.0.0.1:8000/api/update/${student.id}/`;
     console.log("update call..." + student.id);
     try {
-      axios.put(url_update, student).then(() => {
+      axios.post(url_update, student).then(() => {
         setStudents((prevState) => {
           // Replace the updated student in the students list
           const newStudents = prevState.map((item) => {

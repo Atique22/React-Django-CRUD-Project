@@ -30,6 +30,7 @@ class StudentList(ListAPIView):
 
 def delete_records(request, idDelete):
     # if request.method == "DELETE":
+
     item_id = int(idDelete)
     try:
         item = Students.objects.get(id=item_id)
@@ -43,13 +44,16 @@ def delete_records(request, idDelete):
 def update_records(request, idUpdate):
     # if request.method == "DELETE":
     item_id = int(idUpdate)
+    print(item_id)
     try:
-        item = Students.objects.get(id=item_id)
+        instance = Students.objects.get(id=item_id)
+        if request.method == 'POST':
+            # Update the model instance with the new data
+            instance.studName = request.POST.get('studName')
+            instance.studEmail = request.POST.get('studEmail')
+            instance.save()
     except Students.DoesNotExist:
         return JsonResponse({'message': 'Item update errors'})
-
-    # item.delete()
-    # return redirect('http://localhost:3000/BackendViewData')
     return JsonResponse({'message': 'Item update successfully'})
 
 
