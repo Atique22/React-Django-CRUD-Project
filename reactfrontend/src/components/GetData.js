@@ -80,12 +80,12 @@ function GetData() {
               <input
                 type="text"
                 className="form-control m-1"
-                name="studName"
-                value={editStudent.studName}
+                name="studentName"
+                value={editStudent.studentName}
                 onChange={(event) => {
                   setEditStudent({
                     ...editStudent,
-                    studName: event.target.value,
+                    studentName: event.target.value,
                   });
                 }}
               />
@@ -94,12 +94,12 @@ function GetData() {
               <input
                 type="email"
                 className="form-control m-1"
-                name="studEmail"
-                value={editStudent.studEmail}
+                name="studentEmail"
+                value={editStudent.studentEmail}
                 onChange={(event) => {
                   setEditStudent({
                     ...editStudent,
-                    studEmail: event.target.value,
+                    studentEmail: event.target.value,
                   });
                 }}
               />
@@ -133,8 +133,8 @@ function GetData() {
               return (
                 <tr key={index}>
                   <td> {students.id}</td>
-                  <td>{students.studName}</td>
-                  <td>{students.studEmail}</td>
+                  <td>{students.studentName}</td>
+                  <td>{students.studentEmail}</td>
                   <td>
                     <Button
                       variant="outline-danger"

@@ -26,12 +26,16 @@ function PostData() {
     <div className="container col-sm-6 m-5">
       <Form ref={formRef}>
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Control name="studName" type="text" placeholder="Enter name" />
+          <Form.Control
+            name="studentName"
+            type="text"
+            placeholder="Enter name"
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
-            name="studEmail"
+            name="studentEmail"
             type="email"
             placeholder="Enter email"
           />
