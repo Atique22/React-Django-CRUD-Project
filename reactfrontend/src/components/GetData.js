@@ -4,11 +4,11 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 function GetData() {
   const [students, setStudents] = useState([]);
+
   useEffect(() => {
     async function getAllStudents() {
       try {
         const students = await axios.get("http://127.0.0.1:8000/api/student/");
-        // console.log("student data is: " + students.data);
         setStudents(students.data);
       } catch (error) {
         console.log("errors occurs: " + error);
@@ -21,11 +21,20 @@ function GetData() {
     const url_delete = `http://127.0.0.1:8000/api/delete/${idDelete}/`;
     console.log("delete call..." + idDelete);
     try {
-      axios.get(url_delete).then(window.location.reload());
+      axios.get(url_delete).then(() => {
+        setStudents((prevState) => {
+          // Remove the deleted item from the students list
+          const newStudents = prevState.filter(
+            (student) => student.id !== idDelete
+          );
+          return newStudents;
+        });
+      });
     } catch (error) {
       console.log("errors occurs: " + error);
     }
   };
+
   return (
     <div className="container col-sm-6 m-5">
       <Table striped bordered hover>

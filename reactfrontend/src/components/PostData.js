@@ -1,13 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-// import { Navigate} from "react-router-dom";
 function PostData() {
   const formRef = useRef(null);
-  // const [studEmail, setStudEmail] = useState('');
-  // const id = null;
-  const sendData = async (event) => {
+  async function sendData() {
     const formData = new FormData(formRef.current);
     console.log(formData);
     if (!formData) {
@@ -16,18 +13,14 @@ function PostData() {
     }
     try {
       console.log(formData);
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/student/",
-        formData
-      );
+      const response = await axios
+        .post("http://127.0.0.1:8000/api/student/", formData)
+        .then();
       console.log("data send" + response.data);
     } catch (error) {
       console.error(error);
     }
-  };
-  useEffect(() => {
-    console.log("USE EFFECT CALL");
-  });
+  }
 
   return (
     <div className="container col-sm-6 m-5">
@@ -44,7 +37,7 @@ function PostData() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={(e) => sendData(e)}>
+        <Button variant="primary" type="submit" onClick={sendData()}>
           Submit
         </Button>
       </Form>
