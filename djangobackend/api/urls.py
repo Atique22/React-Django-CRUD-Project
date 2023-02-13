@@ -1,8 +1,8 @@
 from django.urls import path
 from api import views
 # from django.conf import settings
-from .views import delete_records
-from .views import update_records
+# from .views import delete_records
+# from .views import update_records
 
 
 urlpatterns = [

@@ -37,11 +37,10 @@ def delete_records(request, idDelete):
     except Students.DoesNotExist:
         return JsonResponse({'message': 'Item deleted errors'})
     item.delete()
-    # return redirect('http://localhost:3000/BackendViewData')
     return JsonResponse({'message': 'Item deleted successfully'})
 
 
-def update_records(request, idUpdate):
+def update_records(request, idUpdate, *args, **kwargs):
     # if request.method == "DELETE":
     item_id = int(idUpdate)
     print(item_id)
