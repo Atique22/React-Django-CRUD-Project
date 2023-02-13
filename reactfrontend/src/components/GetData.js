@@ -17,7 +17,6 @@ function GetData() {
 
   const handleUpdate = (student) => {
     const url_update = `http://127.0.0.1:8000/api/update/${student.id}/`;
-    console.log("update call..." + student.id);
     try {
       axios.get(url_update, student).then(() => {
         setStudents((prevState) => {

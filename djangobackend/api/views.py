@@ -4,6 +4,8 @@ from rest_framework.generics import ListAPIView
 # from django.views import View
 import json
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 from .models import Students
 # Create your views here.
 
@@ -40,16 +42,15 @@ def delete_records(request, idDelete):
 
 
 def update_records(request, idUpdate, *args, **kwargs):
-    # if request.method == "put":
-    item_id = int(idUpdate)
-    print(item_id)
-    try:
-        instance = Students.objects.get(id=item_id)
-        if request.method == 'POST':
-            # Update the model instance with the new data
-            instance.studentName = request.POST.get('studentName')
-            instance.studentEmail = request.POST.get('studentEmail')
-            instance.save()
-    except Students.DoesNotExist:
-        return JsonResponse({'message': 'Item update errors'})
-    return JsonResponse({'message': 'Item update successfully'})
+    if request.method == "put":
+        item_id = int(idUpdate)
+        instance = get_object_or_404(Students, id=item_id)
+        data = request.body
+        # convert the json data to python dictionary
+        data = json.loads(data)
+        # update the fields with the new values
+        instance.studentName = data.get('studentName', instance.studentName)
+        instance.studentEmail = data.get('studentEmail', instance.studentEmail)
+        instance.save()
+        return JsonResponse({"message": "Item updated successfully"})
+    return JsonResponse({"message": "Invalid request method"})
