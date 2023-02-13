@@ -40,6 +40,19 @@ def delete_records(request, idDelete):
     return JsonResponse({'message': 'Item deleted successfully'})
 
 
+def update_records(request, idUpdate):
+    # if request.method == "DELETE":
+    item_id = int(idUpdate)
+    try:
+        item = Students.objects.get(id=item_id)
+    except Students.DoesNotExist:
+        return JsonResponse({'message': 'Item update errors'})
+
+    # item.delete()
+    # return redirect('http://localhost:3000/BackendViewData')
+    return JsonResponse({'message': 'Item update successfully'})
+
+
 class TeacherList(ListAPIView):
     queryset = Teachers.objects.all()
     serializer_class = TeacherSerializer
