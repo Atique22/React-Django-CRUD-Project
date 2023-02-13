@@ -1,12 +1,13 @@
 from django.urls import path
 from api import views
+# from django.conf import settings
+from .views import delete_records
+
 
 urlpatterns = [
-    path('student/', views.StudentList.as_view()),
-    path('teacher/', views.TeacherList.as_view()),
-    path('api/student/', views.StudentList.as_view(),
-     name='read and create-data'),
-    # path('api/student/post_data', views.StudentList.as_view(),
-    #  name='create-data'),
-
+    path('student/', views.StudentList.as_view(),
+         name='student read and create-data'),
+    path('teacher/', views.TeacherList.as_view(),
+         name='teacher read and create-data'),
+    path('delete/<int:idDelete>/', views.delete_records, name='idDelete'),
 ]
