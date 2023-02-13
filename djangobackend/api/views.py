@@ -40,7 +40,7 @@ def delete_records(request, idDelete):
 
 
 def update_records(request, idUpdate, *args, **kwargs):
-    # if request.method == "DELETE":
+    # if request.method == "put":
     item_id = int(idUpdate)
     print(item_id)
     try:

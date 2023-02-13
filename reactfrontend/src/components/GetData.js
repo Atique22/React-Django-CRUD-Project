@@ -69,7 +69,7 @@ function GetData() {
   return (
     <>
       {showEditForm ? (
-        <div className="container m-5">
+        <div className="container col-sm-6 m-5">
           <form
             onSubmit={(event) => {
               event.preventDefault();
