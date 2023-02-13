@@ -37,7 +37,13 @@ function PostData() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={sendData()}>
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={() => {
+            sendData();
+          }}
+        >
           Submit
         </Button>
       </Form>
