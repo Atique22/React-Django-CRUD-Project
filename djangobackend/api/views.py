@@ -39,24 +39,6 @@ def delete_records(request, idDelete):
     # return redirect('http://localhost:3000/BackendViewData')
     return JsonResponse({'message': 'Item deleted successfully'})
 
-    # def post(self, request):
-    #     if request.method == 'POST':
-    #         body = json.loads(request.body.decode('utf-8'))
-    #         print(body.get('studName'))
-    #         print(body.get('studEmail'))
-    #         stud_name =  body.get('studName')
-    #         stud_email = body.get('studEmail')
-    #         print(stud_name)
-    #         print(stud_email)
-    #         # stud_name = "Atique"
-    #         # stud_email = "Atique@gamil.com"
-    #         if stud_name and stud_email:
-    #              student = Students(studName=stud_name, studEmail=stud_email)
-    #              student.save()
-
-    #         return JsonResponse({'message': 'Student created successfully'})
-    #     return JsonResponse({'error': 'Invalid request method'})
-
 
 class TeacherList(ListAPIView):
     queryset = Teachers.objects.all()
@@ -74,3 +56,21 @@ class TeacherList(ListAPIView):
 
             return JsonResponse({'message': 'Student created successfully'})
         return JsonResponse({'error': 'Invalid request method'})
+
+    # def post(self, request):
+    #     if request.method == 'POST':
+    #         body = json.loads(request.body.decode('utf-8'))
+    #         print(body.get('studName'))
+    #         print(body.get('studEmail'))
+    #         stud_name =  body.get('studName')
+    #         stud_email = body.get('studEmail')
+    #         print(stud_name)
+    #         print(stud_email)
+    #         # stud_name = "Atique"
+    #         # stud_email = "Atique@gamil.com"
+    #         if stud_name and stud_email:
+    #              student = Students(studName=stud_name, studEmail=stud_email)
+    #              student.save()
+
+    #         return JsonResponse({'message': 'Student created successfully'})
+    #     return JsonResponse({'error': 'Invalid request method'})

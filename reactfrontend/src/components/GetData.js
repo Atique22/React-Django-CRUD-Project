@@ -21,7 +21,7 @@ function GetData() {
     const url_delete = `http://127.0.0.1:8000/api/delete/${idDelete}/`;
     console.log("delete call..." + idDelete);
     try {
-      axios.get(url_delete);
+      axios.get(url_delete).then(window.location.reload());
     } catch (error) {
       console.log("errors occurs: " + error);
     }
