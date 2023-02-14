@@ -16,9 +16,9 @@ function GetData() {
   };
 
   const handleUpdate = (student) => {
-    const url_update = `http://127.0.0.1:8000/api/update/${student.id}`;
+    const url_update = `http://127.0.0.1:8000/api/api/update/${student.id}`;
     try {
-      axios.get(url_update, student).then(() => {
+      axios.put(url_update, student).then(() => {
         setStudents((prevState) => {
           // Replace the updated student in the students list
           const newStudents = prevState.map((item) => {
@@ -38,7 +38,9 @@ function GetData() {
   useEffect(() => {
     async function getAllStudents() {
       try {
-        const students = await axios.get("http://127.0.0.1:8000/api/student/");
+        const students = await axios.get(
+          "http://127.0.0.1:8000/api/api/students/"
+        );
         // console.log("student data is: " + students.data);
         setStudents(students.data);
       } catch (error) {
@@ -49,10 +51,10 @@ function GetData() {
   }, []);
 
   const handleDelete = (idDelete) => {
-    const url_delete = `http://127.0.0.1:8000/api/delete/${idDelete}`;
+    const url_delete = `http://127.0.0.1:8000/api/api/delete/${idDelete}`;
     console.log("delete call..." + idDelete);
     try {
-      axios.get(url_delete).then(() => {
+      axios.delete(url_delete).then(() => {
         setStudents((prevState) => {
           const newStudents = prevState.filter(
             (student) => student.id !== idDelete
