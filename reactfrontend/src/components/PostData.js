@@ -14,7 +14,7 @@ function PostData() {
     try {
       console.log(formData);
       const response = await axios
-        .post("http://127.0.0.1:8000/api/api/students/", formData)
+        .post("http://127.0.0.1:8000/api/api/students", formData)
         .then();
       console.log("data send" + response.data);
     } catch (error) {

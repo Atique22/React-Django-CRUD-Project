@@ -18,6 +18,7 @@ function GetData() {
   const handleUpdate = (student) => {
     const url_update = `http://127.0.0.1:8000/api/api/update/${student.id}`;
     try {
+      console.log("update calling ..." + student.id);
       axios.put(url_update, student).then(() => {
         setStudents((prevState) => {
           // Replace the updated student in the students list
@@ -39,7 +40,7 @@ function GetData() {
     async function getAllStudents() {
       try {
         const students = await axios.get(
-          "http://127.0.0.1:8000/api/api/students/"
+          "http://127.0.0.1:8000/api/api/students"
         );
         // console.log("student data is: " + students.data);
         setStudents(students.data);

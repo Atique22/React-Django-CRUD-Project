@@ -2,9 +2,9 @@ from django.urls import path
 from .views import StudentList
 
 urlpatterns = [
-    path('api/students/', StudentList.as_view(), name='students'),
-    path('api/delete/<int:idDelete>/', StudentList.as_view(), name='delete'),
-    path('api/update/<int:idUpdate>/', StudentList.as_view(), name='update'),
+    path('api/students', StudentList.as_view(), name='students'),
+    path('api/delete/<int:idDelete>', StudentList.as_view(), name='delete'),
+    path('api/update/<int:idUpdate>', StudentList.as_view(), name='update'),
 ]
 
 

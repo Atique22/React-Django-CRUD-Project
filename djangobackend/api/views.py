@@ -37,6 +37,7 @@ class StudentList(ListAPIView):
 
     def put(self, request, *args, **kwargs):
         item_id = kwargs.get('idUpdate')
+        print(item_id)
         item = get_object_or_404(Students, id=item_id)
 
         stud_name = request.POST.get('studentName')
