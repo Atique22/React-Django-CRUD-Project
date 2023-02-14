@@ -36,20 +36,24 @@ class StudentList(ListAPIView):
         return JsonResponse({'error': 'Invalid request method'})
 
     def put(self, request, *args, **kwargs):
-        item_id = kwargs.get('idUpdate')
-        print(item_id)
-        item = get_object_or_404(Students, id=item_id)
-
-        stud_name = request.POST.get('studentName')
-        stud_email = request.POST.get('studentEmail')
-
-        if stud_name:
-            item.studentName = stud_name
-            item.studentEmail = stud_email
-            item.save()
-            return JsonResponse({'message': 'Data updated successfully'})
-        else:
-            return JsonResponse({'error': 'Please provide a student name'})
+        print("hello there")
+        if request.method == "PUT":
+            print("PUT IS WORKING ")
+            item_id = kwargs.get('idUpdate')
+            print(item_id)
+            item = get_object_or_404(Students, id=item_id)
+            print(item.studentName)
+            stud_name = request.data.get('studentName')
+            stud_email = request.data.get('studentEmail')
+            print(stud_name)
+            print(stud_email)
+            if stud_name:
+                item.studentName = stud_name
+                item.studentEmail = stud_email
+                item.save()
+                return JsonResponse({'message': 'Data updated successfully'})
+            else:
+                return JsonResponse({'error': 'Please provide a student name'})
 
     def delete(self, request, *args, **kwargs):
         item_id = kwargs.get('idDelete')
