@@ -16,7 +16,7 @@ function GetData() {
   };
 
   const handleUpdate = (student) => {
-    const url_update = `http://127.0.0.1:8000/api/update/${student.id}/`;
+    const url_update = `http://127.0.0.1:8000/api/update/${student.id}`;
     try {
       axios.get(url_update, student).then(() => {
         setStudents((prevState) => {
@@ -49,7 +49,7 @@ function GetData() {
   }, []);
 
   const handleDelete = (idDelete) => {
-    const url_delete = `http://127.0.0.1:8000/api/delete/${idDelete}/`;
+    const url_delete = `http://127.0.0.1:8000/api/delete/${idDelete}`;
     console.log("delete call..." + idDelete);
     try {
       axios.get(url_delete).then(() => {
