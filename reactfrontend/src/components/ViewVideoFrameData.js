@@ -43,9 +43,9 @@ function GetData() {
                       alt={frameData.frame_image}
                     />
                   </td>
-                  <td>{frameData.frame_name}</td>
-                  <td>{frameData.frame_comment}</td>
-                  <td>{frameData.frame_type}</td>
+                  <td className=" text-truncate">{frameData.frame_name}</td>
+                  <td className=" text-truncate">{frameData.frame_comment}</td>
+                  <td className=" text-truncate">{frameData.frame_type}</td>
                 </tr>
               );
             })}
