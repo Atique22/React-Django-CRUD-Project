@@ -31,6 +31,7 @@ function VideoCapture() {
     }
     try {
       const formData = new FormData();
+      console.log("date url is:" + dataURL);
       formData.append("frameName", formFrameData.get("frameName"));
       formData.append("frameType", formFrameData.get("frameType"));
       formData.append("frameComment", formFrameData.get("frameComment"));

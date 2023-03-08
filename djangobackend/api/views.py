@@ -12,6 +12,9 @@ from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from .models import Students
 from .models import Frame
+import base64
+from io import BytesIO
+from PIL import Image
 # Create your views here.
 
 
@@ -29,14 +32,23 @@ class FrameList(ListAPIView):
             frameName = request.POST.get('frameName')
             frameType = request.POST.get('frameType')
             frameComment = request.POST.get('frameComment')
-            frameImage = request.FILES.get('frameImage')
+            frameImage = request.POST.get('frameImage')
             print("name", frameName)
             print("type", frameType)
             print("comment", frameComment)
             print("image", frameImage)
             if frameName:
+                # decode the base64 image data into bytes
+                # remove the "data:image/jpeg;base64," prefix
+                data = frameImage.split(',')[1]
+                image_bytes = base64.b64decode(data)
+                image = Image.open(BytesIO(image_bytes))
+
+                # save the image to a file or do something else with it
+                image.save('captured_frame.jpg')
+
                 frame_data = Frame(frame_name=frameName, frame_type=frameType,
-                                   frame_comment=frameComment, frame_image=frameImage)
+                                   frame_comment=frameComment, frame_image='captured_frame.jpg')
                 print(frame_data)
                 frame_data.save()
 
