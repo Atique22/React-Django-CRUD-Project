@@ -30,10 +30,10 @@ class FrameList(ListAPIView):
             frameType = request.POST.get('frameType')
             frameComment = request.POST.get('frameComment')
             frameImage = request.POST.get('frameImage')
-            print(frameName)
-            print(frameType)
-            print(frameComment)
-            print(frameImage)
+            print("name", frameName)
+            print("type", frameType)
+            print("comment", frameComment)
+            print("image", frameImage)
             if frameName:
                 frame_data = Frame(frame_name=frameName, frame_type=frameType,
                                    frame_comment=frameComment, frame_image=frameImage)
