@@ -36,7 +36,7 @@ class FrameList(ListAPIView):
             print("name", frameName)
             print("type", frameType)
             print("comment", frameComment)
-            print("image", frameImage)
+            # print("image", frameImage)
             if frameName:
                 # decode the base64 image data into bytes
                 # remove the "data:image/jpeg;base64," prefix
