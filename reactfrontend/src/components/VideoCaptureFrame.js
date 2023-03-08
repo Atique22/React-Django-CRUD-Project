@@ -50,8 +50,11 @@ function VideoCapture() {
         //     frameComment: formFrameData.get("frameComment"),
         //     frameImage: dataURL,
         //   })
-        .then();
-      console.log("Data Send: " + JSON.stringify(response.data));
+        .then()
+        .then((data) => {
+          console.log(data);
+          alert("Frame data created successfully!");
+        });
     } catch (error) {
       console.error(error);
     }
