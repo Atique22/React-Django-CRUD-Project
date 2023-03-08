@@ -2,8 +2,10 @@ import React, { useRef } from "react";
 import axios from "axios";
 import myVideo from "../assets/video.mp4";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 function VideoCapture() {
+  const navigate = useNavigate();
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const formFrameRef = useRef(null);
@@ -37,7 +39,7 @@ function VideoCapture() {
       formData.append("frameComment", formFrameData.get("frameComment"));
       formData.append("frameImage", dataURL);
 
-      const response = await axios
+      await axios
         .post("http://127.0.0.1:8000/api/api/frameDataStorage", formData)
 
         // console.log("name :" + formFrameData.get("frameName"));
@@ -52,8 +54,9 @@ function VideoCapture() {
         //   })
         .then()
         .then((data) => {
-          console.log(data);
+          console.log("send data: " + data);
           alert("Frame data created successfully!");
+          navigate("/");
         });
     } catch (error) {
       console.error(error);
