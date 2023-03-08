@@ -36,7 +36,13 @@ function GetData() {
             {frameData.map((frameData, index) => {
               return (
                 <tr key={index}>
-                  <td>{frameData.frame_image}</td>
+                  <td className="w-25">
+                    <img
+                      src={frameData.frame_image}
+                      className="img-fluid img-thumbnail"
+                      alt={frameData.frame_image}
+                    />
+                  </td>
                   <td>{frameData.frame_name}</td>
                   <td>{frameData.frame_comment}</td>
                   <td>{frameData.frame_type}</td>
