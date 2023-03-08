@@ -12,4 +12,4 @@ class StudentSerializer(serializers.ModelSerializer):
 class FrameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Frame
-        fields = '__all__'
+        fields = ['frame_name', 'frame_type', 'frame_comment', 'frame_image']
