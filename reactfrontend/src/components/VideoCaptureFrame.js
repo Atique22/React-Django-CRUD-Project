@@ -41,7 +41,7 @@ function VideoCapture() {
           frameImage: dataURL,
         })
         .then();
-      console.log("data send" + JSON.stringify(response.data));
+      console.log("Data Send: " + JSON.stringify(response.data));
     } catch (error) {
       console.error(error);
     }
