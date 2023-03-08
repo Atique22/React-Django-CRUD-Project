@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .serializers import StudentSerializer
+from .serializers import FrameSerializer
 from rest_framework.generics import ListAPIView
 # from django.views import View
 import json
@@ -10,7 +11,36 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from .models import Students
+from .models import Frame
 # Create your views here.
+
+
+class FrameList(ListAPIView):
+    queryset = Frame.objects.all()
+    serializer_class = FrameSerializer
+
+    @csrf_exempt
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            frameName = request.POST.get('frameName')
+            frameType = request.POST.get('frameType')
+            frameComment = request.POST.get('frameComment')
+            frameImage = request.POST.get('frameImage')
+            print(frameName)
+            print(frameType)
+            print(frameComment)
+            print(frameImage)
+            if frameName:
+                frame_data = Frame(frame_name=frameName, frame_type=frameType,
+                                   frame_comment=frameComment, frame_image=frameImage)
+                print(frame_data)
+                frame_data.save()
+
+            return JsonResponse({'message': 'frame data created successfully'})
+        return JsonResponse({'error': 'Invalid request method'})
 
 
 class StudentList(ListAPIView):
