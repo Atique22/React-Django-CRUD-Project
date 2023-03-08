@@ -45,7 +45,7 @@ function VideoCapture() {
         .then((data) => {
           console.log("send data: " + data);
           alert("Frame data created successfully!");
-          navigate("/");
+          navigate("/ViewVideoFrameData");
         });
     } catch (error) {
       console.error(error);
