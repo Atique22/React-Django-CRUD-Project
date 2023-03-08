@@ -29,7 +29,7 @@ class FrameList(ListAPIView):
             frameName = request.POST.get('frameName')
             frameType = request.POST.get('frameType')
             frameComment = request.POST.get('frameComment')
-            frameImage = request.POST.get('frameImage')
+            frameImage = request.FILES.get('frameImage')
             print("name", frameName)
             print("type", frameType)
             print("comment", frameComment)

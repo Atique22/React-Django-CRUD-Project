@@ -30,16 +30,25 @@ function VideoCapture() {
       console.log(" image url is not access:" + dataURL);
     }
     try {
-      console.log("name :" + formFrameData.get("frameName"));
-      console.log("status :" + formFrameData.get("frameType"));
-      console.log("comment :" + formFrameData.get("frameComment"));
+      const formData = new FormData();
+      formData.append("frameName", formFrameData.get("frameName"));
+      formData.append("frameType", formFrameData.get("frameType"));
+      formData.append("frameComment", formFrameData.get("frameComment"));
+      formData.append("frameImage", dataURL);
+
       const response = await axios
-        .post("http://127.0.0.1:8000/api/api/frameDataStorage", {
-          frameName: formFrameData.get("frameName"),
-          frameType: formFrameData.get("frameType"),
-          frameComment: formFrameData.get("frameComment"),
-          frameImage: dataURL,
-        })
+        .post("http://127.0.0.1:8000/api/api/frameDataStorage", formData)
+
+        // console.log("name :" + formFrameData.get("frameName"));
+        // console.log("status :" + formFrameData.get("frameType"));
+        // console.log("comment :" + formFrameData.get("frameComment"));
+        // const response = await axios
+        //   .post("http://127.0.0.1:8000/api/api/frameDataStorage", {
+        //     frameName: formFrameData.get("frameName"),
+        //     frameType: formFrameData.get("frameType"),
+        //     frameComment: formFrameData.get("frameComment"),
+        //     frameImage: dataURL,
+        //   })
         .then();
       console.log("Data Send: " + JSON.stringify(response.data));
     } catch (error) {
