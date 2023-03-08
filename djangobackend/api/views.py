@@ -25,6 +25,7 @@ class FrameList(ListAPIView):
 
     def post(self, request, *args, **kwargs):
         if request.method == 'POST':
+            print("yes post is working ")
             frameName = request.POST.get('frameName')
             frameType = request.POST.get('frameType')
             frameComment = request.POST.get('frameComment')
