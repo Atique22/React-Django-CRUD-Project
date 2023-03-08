@@ -46,28 +46,6 @@ function GetData() {
                   <td>{frameData.frame_name}</td>
                   <td>{frameData.frame_comment}</td>
                   <td>{frameData.frame_type}</td>
-                  <td>
-                    <Button
-                      variant="outline-danger"
-                      value="Delete"
-                      onClick={() => {
-                        // handleDelete(frameData.id);
-                      }}
-                    >
-                      Delete
-                    </Button>
-                  </td>
-                  <td>
-                    <Button
-                      variant="outline-success"
-                      value="Edit"
-                      //   onClick={() => {
-                      //     handleEdit(frameData);
-                      //   }}
-                    >
-                      Edit
-                    </Button>
-                  </td>
                 </tr>
               );
             })}
