@@ -3,6 +3,7 @@ from .serializers import StudentSerializer
 from .serializers import FrameSerializer
 from rest_framework.generics import ListAPIView
 # from django.views import View
+import datetime
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
@@ -43,13 +44,16 @@ class FrameList(ListAPIView):
                 data = frameImage.split(',')[1]
                 image_bytes = base64.b64decode(data)
                 image = Image.open(BytesIO(image_bytes))
+                # generate a new filename based on the current timestamp
+                timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+                filename = f'captured_frame_{timestamp}.jpg'
 
-                # save the image to a file or do something else with it
-                image.save('captured_frame.jpg')
+                # save the image to a file with the new filename
+                image.save(filename)
 
+                # create a new Frame object and save it to the database
                 frame_data = Frame(frame_name=frameName, frame_type=frameType,
-                                   frame_comment=frameComment, frame_image='captured_frame.jpg')
-                print(frame_data)
+                                   frame_comment=frameComment, frame_image=filename)
                 frame_data.save()
 
             return JsonResponse({'message': 'frame data created successfully'})
