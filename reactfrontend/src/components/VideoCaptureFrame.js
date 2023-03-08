@@ -41,17 +41,6 @@ function VideoCapture() {
 
       await axios
         .post("http://127.0.0.1:8000/api/api/frameDataStorage", formData)
-
-        // console.log("name :" + formFrameData.get("frameName"));
-        // console.log("status :" + formFrameData.get("frameType"));
-        // console.log("comment :" + formFrameData.get("frameComment"));
-        // const response = await axios
-        //   .post("http://127.0.0.1:8000/api/api/frameDataStorage", {
-        //     frameName: formFrameData.get("frameName"),
-        //     frameType: formFrameData.get("frameType"),
-        //     frameComment: formFrameData.get("frameComment"),
-        //     frameImage: dataURL,
-        //   })
         .then()
         .then((data) => {
           console.log("send data: " + data);
