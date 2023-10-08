@@ -5,7 +5,7 @@
 - Navigate to the "reactfrontend" Directory:
   ```
   
-  cd frontend
+  cd reactfrontend
   
   ```
 - Install Dependencies:
@@ -27,7 +27,7 @@
 - Navigate to the "djangobackend" Directory:
   ```
   
-  cd backend
+  cd djangobackend
 
   ```
 - Install Python Dependencies from the requirements file:
